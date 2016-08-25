@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My Project</title>
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="//npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script src="//www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+
+<body class="light-green lighten-4">
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Best Hikes</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12">
+                  <div id="locationButtons"></div>
+                </div>
+            </div>
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div id="location-details-pane"></div>
+                </div>
+                <div class="col s12 m8 map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="section">
+
+        </div>
+    </div>
+
+    <footer class="page-footer green">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <p class="white-text">Made by Kyleigh</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+    <!-- templates -->
+    <script id="location-details" type="text/x-handlebars-template">
+        <div class="title">{{name}}</div>
+        <div class="details">
+            <div class="website">{{website}}</div>
+            <div class="phone-number">{{phoneNumber}}</div>
+        </div>
+        <div class="photos">
+            {{#each photos}}
+            <img src="{{url}}" /> {{/each}}
+        </div>
+        <div class="reviews">Reviews
+            <div class="review">
+                {{#each reviews}}
+                <div>{{text}}</div>
+                <img class="profile-photo" src="{{url}}" /> {{/each}}
+            </div>
+        </div>
+    </script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCsGr2v-dLGNewEDh6yXcV1vNnnETkzvPY&libraries=places&callback=initMap" async defer></script>
+</body>
+
+</html>
