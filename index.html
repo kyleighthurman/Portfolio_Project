@@ -28,7 +28,7 @@
                   <div id="locationButtons"></div>
                 </div>
             </div>
-            <!--   Icon Section   -->
+            <!--   Main   -->
             <div class="row">
                 <div class="col s12 m4">
                     <div id="location-details-pane"></div>
@@ -59,25 +59,24 @@
 
     <!--  Scripts-->
     <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
 
     <!-- templates -->
     <script id="location-details" type="text/x-handlebars-template">
         <div class="title">{{name}}</div>
         <div class="details">
-            <div class="website">{{website}}</div>
-            <div class="phone-number">{{phoneNumber}}</div>
+            <!-- <div class="website">{{website}}</div> -->
+            <!-- <div class="phone-number">{{phoneNumber}}</div> -->
         </div>
         <div class="photos">
             {{#each photos}}
             <img src="{{url}}" /> {{/each}}
         </div>
-        <div class="reviews">Reviews
+        {{#if reviews}}<div class="reviews">Reviews
             <div class="review">
                 {{#each reviews}}
                 <div>{{text}}</div>
                 <img class="profile-photo" src="{{url}}" /> {{/each}}
-            </div>
+            </div>{{/if}}
         </div>
     </script>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCsGr2v-dLGNewEDh6yXcV1vNnnETkzvPY&libraries=places&callback=initMap" async defer></script>
